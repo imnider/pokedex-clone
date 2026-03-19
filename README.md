@@ -6,7 +6,7 @@ Se implementarán más tecnologías con el pasar del tiempo.
 - SQL Server
 
 ## Diagrama Entidad Relación
-- Excalidraw: https://excalidraw.com/#json=XdB7PpgYNnvruwzI_EZxM,sTfXcV4oX50OT-FEXtrdhg
+- Excalidraw: https://excalidraw.com/#json=lSPtl5eRF7AzIfvNi0QyZ,_tI4Xuk4DaVPV1NMMTAWkg
 
 ## Derechos de autor
 © The Pokémon Company. Todos los derechos reservados.
