@@ -1,29 +1,44 @@
+USE master;
+GO
+
+IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = 'PokedexClone')
+    CREATE DATABASE PokedexClone;
+GO
+
+USE PokedexClone;
+GO
+
 -- Tablas sin FK
 
 CREATE TABLE MoveCategory(
 	MoveCategoryID INT IDENTITY(1, 1) NOT NULL PRIMARY KEY,
 	DisplayName VARCHAR(30) NOT NULL
 );
+GO
 
 CREATE TABLE Type(
 	TypeID INT IDENTITY(1, 1) NOT NULL PRIMARY KEY,
 	DisplayName VARCHAR(30) NOT NULL
 );
+GO
 
 CREATE TABLE Ability(
 	AbilityID UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID() PRIMARY KEY,
 	DisplayName VARCHAR(30) NOT NULL,
 	Effect VARCHAR(255) NOT NULL,
 );
+GO
 
 CREATE TABLE EvolutionChain(
 	EvolutionChainID UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID() PRIMARY KEY
 );
+GO
 
 CREATE TABLE MachineType(
 	MachineTypeID INT IDENTITY(1, 1) NOT NULL PRIMARY KEY,
 	DisplayName VARCHAR(30) NOT NULL
 );
+GO
 
 -- Tablas normales
 CREATE TABLE Move(
@@ -37,6 +52,7 @@ CREATE TABLE Move(
 	MaxPP INT NOT NULL,
 	Effect VARCHAR(255) DEFAULT 'Inflicts regular damage with no additional effect.'
 );
+GO
 
 CREATE TABLE Pokemon(
 	PokemonID INT IDENTITY(1, 1) NOT NULL PRIMARY KEY,
@@ -50,6 +66,7 @@ CREATE TABLE Pokemon(
 	SpecialDefense INT NULL,
 	Speed INT NOT NULL
 );
+GO
 
 -- Tablas intermedias (N:M)
 CREATE TABLE PokemonMove(
@@ -63,6 +80,7 @@ CREATE TABLE PokemonMove(
 	CONSTRAINT CK_PokemonMove_MachineType
 		CHECK ((RequiresMachine = 0) OR (RequiresMachine = 1 AND MachineTypeID IS NOT NULL))
 );
+GO
 
 CREATE TABLE PokemonType(
 	PokemonID INT NOT NULL REFERENCES Pokemon(PokemonID),
@@ -75,6 +93,7 @@ CREATE TABLE PokemonType(
 	CONSTRAINT CK_PokemonType_Slot
 		CHECK (Slot IN (1,2))
 );
+GO
 
 CREATE TABLE PokemonAbility(
 	PokemonID INT NOT NULL REFERENCES Pokemon(PokemonID),
@@ -91,6 +110,7 @@ CREATE TABLE PokemonAbility(
 --		Validar que un Pokémon no pueda tener más de una habilidad oculta
 --		Validar que cuando un Pokémon tiene más de una habilidad, una de ellas debe ser oculta
 );
+GO
 
 CREATE TABLE PokemonEvolution(
 	FromPokemonID INT NOT NULL REFERENCES Pokemon(PokemonID),
@@ -104,3 +124,4 @@ CREATE TABLE PokemonEvolution(
 --	ACLARACIÓN:
 --		Normalmente RequieredItem sería una Tabla Item, pero por limitaciones de la Pokedex no se agregará dicha tabla
 );
+GO
