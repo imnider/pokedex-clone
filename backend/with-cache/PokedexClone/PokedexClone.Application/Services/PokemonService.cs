@@ -52,7 +52,7 @@ namespace PokedexClone.Application.Services
             return ResponsesHelper.Create(pokemon, $"Pokemon eliminado exitosamente: {pokemon.DisplayName}");
         }
 
-        public GenericResponse<List<PokemonDto>> GetAll(int limit, int offset)
+        public GenericResponse<List<PokemonDto>> GetAll(GetAllPokemonRequest model)
         {
             var pokemons = cache.Get();
             if (pokemons is null || !pokemons.Any())
@@ -75,5 +75,7 @@ namespace PokedexClone.Application.Services
             }
             return ResponsesHelper.Create(pokemon, $"Pokemon encontrado con éxito: {pokemon.DisplayName}.");
         }
+
+
     }
 }

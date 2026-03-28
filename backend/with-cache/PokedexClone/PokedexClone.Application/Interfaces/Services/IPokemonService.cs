@@ -7,7 +7,7 @@ namespace PokedexClone.Application.Interfaces.Services
     public interface IPokemonService
     {
         public GenericResponse<PokemonDto> Create(CreatePokemonRequest model);
-        public GenericResponse<List<PokemonDto>> GetAll(int limit, int offset);
+        public GenericResponse<List<PokemonDto>> GetAll(GetAllPokemonRequest model);
         public GenericResponse<PokemonDto> GetById(int id);
         public GenericResponse<PokemonDto> DeleteById(int id);
     }

@@ -18,7 +18,7 @@ namespace PokedexClone.WebApp.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll([FromQuery] GetAllPokemonRequest model)
         {
-            var rsp = pokemonService.GetAll(model.Limit ?? 0, model.Offset ?? 0);
+            var rsp = pokemonService.GetAll(model);
             return Ok(rsp);
         }
 
