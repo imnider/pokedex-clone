@@ -10,5 +10,6 @@ namespace PokedexClone.Application.Interfaces.Services
         public GenericResponse<List<PokemonDto>> GetAll(GetAllPokemonRequest model);
         public GenericResponse<PokemonDto> GetById(int id);
         public GenericResponse<PokemonDto> DeleteById(int id);
+        public GenericResponse<PokemonDto> UpdateById(int id, UpdatePokemonRequest model);
     }
 }

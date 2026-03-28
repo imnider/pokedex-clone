@@ -35,5 +35,12 @@ namespace PokedexClone.WebApp.Controllers
             var rsp = pokemonService.DeleteById(id);
             return Ok(rsp);
         }
+
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> UpdateById(int id, [FromBody] UpdatePokemonRequest model)
+        {
+            var rsp = pokemonService.UpdateById(id, model);
+            return Ok(rsp);
+        }
     }
 }

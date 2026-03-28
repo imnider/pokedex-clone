@@ -76,6 +76,27 @@ namespace PokedexClone.Application.Services
             return ResponsesHelper.Create(pokemon, $"Pokemon encontrado con éxito: {pokemon.DisplayName}.");
         }
 
-
+        public GenericResponse<PokemonDto> UpdateById(int id, UpdatePokemonRequest model)
+        {
+            var pokemon = cache.Get(id.ToString());
+            if (pokemon is null)
+            {
+                return ResponsesHelper.Create(pokemon, "No se ha encontrado al Pokemon.");
+            }
+            if (model.PokemonID != null) pokemon.PokemonID = model.PokemonID ?? 0;
+            if (model.EvolutionChainID != null) pokemon.EvolutionChainID = model.EvolutionChainID ?? Guid.NewGuid();
+            if (model.DisplayName != null) pokemon.DisplayName = model.DisplayName;
+            if (model.Description != null) pokemon.Description = model.Description;
+            if (model.Generation != null) pokemon.Generation = model.Generation ?? 0;
+            if (model.HP != null) pokemon.HP = model.HP ?? 0;
+            if (model.Attack != null) pokemon.Attack = model.Attack ?? 0;
+            if (model.Defense != null) pokemon.Defense = model.Defense ?? 0;
+            if (model.SpecialAttack != null) pokemon.SpecialAttack = model.SpecialAttack ?? 0;
+            if (model.SpecialDefense != null) pokemon.SpecialDefense = model.SpecialDefense ?? 0;
+            if (model.Speed != null) pokemon.Speed = model.Speed ?? 0;
+            cache.Delete(id.ToString());
+            cache.Add(pokemon.PokemonID.ToString(), pokemon);
+            return ResponsesHelper.Create(pokemon, $"Pokemon modificado con éxito: {pokemon.DisplayName}");
+        }
     }
 }
