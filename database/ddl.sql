@@ -1,0 +1,54 @@
+-- Tablas sin FK
+
+CREATE TABLE MoveCategory(
+	MoveCategoryID INT IDENTITY(1, 1) NOT NULL PRIMARY KEY,
+	DisplayName VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE Type(
+	TypeID INT IDENTITY(1, 1) NOT NULL PRIMARY KEY,
+	DisplayName VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE Abilty(
+	AbilityID UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID() PRIMARY KEY,
+	DisplayName VARCHAR(30) NOT NULL,
+	Effect VARCHAR(255) NOT NULL,
+);
+
+CREATE TABLE EvolutionChain(
+	EvolutionChainID UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID() PRIMARY KEY
+);
+
+CREATE TABLE MachineType(
+	MachineTypeID INT IDENTITY(1, 1) NOT NULL PRIMARY KEY,
+	DisplayName VARCHAR(30) NOT NULL
+);
+
+-- Tablas normales
+CREATE TABLE Move(
+	MoveID UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID() PRIMARY KEY,
+	TypeID INT NOT NULL REFERENCES Type(TypeID),
+	MoveCategoryID INT NOT NULL REFERENCES MoveCategory(MoveCategoryID),
+	DisplayName VARCHAR(30) NOT NULL,
+	Power INT NOT NULL,
+	Accuracy INT NOT NULL,
+	MinPP INT NOT NULL,
+	MaxPP INT NOT NULL,
+	Effect VARCHAR(255) DEFAULT 'Inflicts regular damage with no additional effect.'
+);
+
+CREATE TABLE Pokemon(
+	PokemonID INT IDENTITY(1, 1) NOT NULL PRIMARY KEY,
+	EvolutionChainID UNIQUEIDENTIFIER NOT NULL REFERENCES EvolutionChain(EvolutionChainID),
+	Description VARCHAR(255) NOT NULL,
+	Generation INT NOT NULL,
+	HP INT NOT NULL,
+	Attack INT NOT NULL,
+	Defense INT NOT NULL,
+	SpecialAttack INT NOT NULL,
+	SpecialDefense INT NULL,
+	Speed INT NOT NULL
+);
+
+-- Tablas intermedias (N:M)
