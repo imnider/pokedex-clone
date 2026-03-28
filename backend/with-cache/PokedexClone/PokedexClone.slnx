@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="PokedexClone.Application/PokedexClone.Application.csproj" Id="0c467aea-bf4a-40b0-9665-71f30ecfef41" />
+  <Project Path="PokedexClone.Shared/PokedexClone.Shared.csproj" Id="89f449ae-167a-4bc6-bd77-aa67f6a13e5e" />
+  <Project Path="PokedexClone.WebApp/PokedexClone.WebApp.csproj" Id="ee610f11-2bfc-4843-b519-cd83aa4eee46" />
+</Solution>
