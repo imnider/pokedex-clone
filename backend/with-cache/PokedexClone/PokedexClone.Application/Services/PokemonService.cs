@@ -38,22 +38,42 @@ namespace PokedexClone.Application.Services
             }
 
             cache.Add(pokemon.PokemonID.ToString(), pokemon);
-            return ResponsesHelper.Create(pokemon, "Pokemon registrado exitosamente.");
+            return ResponsesHelper.Create(pokemon, "Pokémon registrado exitosamente.");
         }
 
         public GenericResponse<PokemonDto> DeleteById(int id)
         {
-            throw new NotImplementedException();
+            var pokemon = cache.Get(id.ToString());
+            if (pokemon is null)
+            {
+                return ResponsesHelper.Create(pokemon, "No se ha encontrado al Pokemon.");
+            }
+            cache.Delete(id.ToString());
+            return ResponsesHelper.Create(pokemon, $"Pokemon eliminado exitosamente: {pokemon.DisplayName}");
         }
 
         public GenericResponse<List<PokemonDto>> GetAll(int limit, int offset)
         {
-            throw new NotImplementedException();
+            var pokemons = cache.Get();
+            if (pokemons is null || !pokemons.Any())
+            {
+                return ResponsesHelper.Create(pokemons, "No se han encontrado Pokémon.");
+            }
+            else
+            {
+                int pokemonCount = pokemons.Count;
+                return ResponsesHelper.Create(pokemons, $"Se han encontrado {pokemonCount} Pokémon.");
+            }
         }
 
         public GenericResponse<PokemonDto> GetById(int id)
         {
-            throw new NotImplementedException();
+            var pokemon = cache.Get(id.ToString());
+            if (pokemon is null)
+            {
+                return ResponsesHelper.Create(pokemon, "No se ha encontrado al Pokemon.");
+            }
+            return ResponsesHelper.Create(pokemon, $"Pokemon encontrado con éxito: {pokemon.DisplayName}.");
         }
     }
 }

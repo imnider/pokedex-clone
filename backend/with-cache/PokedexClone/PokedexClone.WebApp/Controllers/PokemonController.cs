@@ -14,5 +14,26 @@ namespace PokedexClone.WebApp.Controllers
             var rsp = pokemonService.Create(model);
             return Ok(rsp);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll([FromQuery] GetAllPokemonRequest model)
+        {
+            var rsp = pokemonService.GetAll(model.Limit ?? 0, model.Offset ?? 0);
+            return Ok(rsp);
+        }
+
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var rsp = pokemonService.GetById(id);
+            return Ok(rsp);
+        }
+
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> DeleteById(int id)
+        {
+            var rsp = pokemonService.DeleteById(id);
+            return Ok(rsp);
+        }
     }
 }
