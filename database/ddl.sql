@@ -57,6 +57,7 @@ GO
 CREATE TABLE Pokemon(
 	PokemonID INT IDENTITY(1, 1) NOT NULL PRIMARY KEY,
 	EvolutionChainID UNIQUEIDENTIFIER NOT NULL REFERENCES EvolutionChain(EvolutionChainID),
+	DisplayName VARCHAR(30) NOT NULL,
 	Description VARCHAR(255) NOT NULL,
 	Generation INT NOT NULL,
 	HP INT NOT NULL,
@@ -107,8 +108,8 @@ CREATE TABLE PokemonAbility(
 	CONSTRAINT CK_PokemonAbility_Slot
 		CHECK (Slot IN (1,3))
 --	BACKEND:
---		Validar que un Pokémon no pueda tener más de una habilidad oculta
---		Validar que cuando un Pokémon tiene más de una habilidad, una de ellas debe ser oculta
+--		Validar que un Pokï¿½mon no pueda tener mï¿½s de una habilidad oculta
+--		Validar que cuando un Pokï¿½mon tiene mï¿½s de una habilidad, una de ellas debe ser oculta
 );
 GO
 
@@ -121,7 +122,7 @@ CREATE TABLE PokemonEvolution(
 	ConditionDescription VARCHAR(255),
 	CONSTRAINT PK_PokemonEvolution_From_To
 		PRIMARY KEY (FromPokemonID, ToPokemonID),
---	ACLARACIÓN:
---		Normalmente RequieredItem sería una Tabla Item, pero por limitaciones de la Pokedex no se agregará dicha tabla
+--	ACLARACIï¿½N:
+--		Normalmente RequieredItem serï¿½a una Tabla Item, pero por limitaciones de la Pokedex no se agregarï¿½ dicha tabla
 );
 GO
