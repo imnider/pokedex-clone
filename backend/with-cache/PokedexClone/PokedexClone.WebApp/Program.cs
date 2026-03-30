@@ -13,8 +13,10 @@ builder.Services.AddOpenApi();
 
 // Services
 builder.Services.AddScoped<IPokemonService, PokemonService>();
+builder.Services.AddScoped<IMoveService, MoveService>();
 
 builder.Services.AddSingleton<Cache<PokemonDto>>();
+builder.Services.AddSingleton<Cache<MoveDto>>();
 
 var app = builder.Build();
 
