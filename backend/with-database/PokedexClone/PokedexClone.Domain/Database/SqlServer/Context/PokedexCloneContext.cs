@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using PokedexClone.Domain.Database.SqlServer.Entities;
 
 namespace PokedexClone.Domain.Database.SqlServer.Context;
@@ -36,7 +34,7 @@ public partial class PokedexCloneContext : DbContext
 
     public virtual DbSet<PokemonType> PokemonTypes { get; set; }
 
-    public virtual DbSet<Type> Types { get; set; }
+    //public virtual DbSet<Type> Types { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -46,7 +44,7 @@ public partial class PokedexCloneContext : DbContext
     {
         modelBuilder.Entity<Ability>(entity =>
         {
-            entity.HasKey(e => e.AbilityId).HasName("PK__Ability__88B2505F163C3C0A");
+            entity.HasKey(e => e.AbilityId).HasName("PK__Ability__88B2505FABE34FDB");
 
             entity.ToTable("Ability");
 
@@ -63,7 +61,7 @@ public partial class PokedexCloneContext : DbContext
 
         modelBuilder.Entity<EvolutionChain>(entity =>
         {
-            entity.HasKey(e => e.EvolutionChainId).HasName("PK__Evolutio__A342BA5AA1C1E328");
+            entity.HasKey(e => e.EvolutionChainId).HasName("PK__Evolutio__A342BA5A1BDF24FD");
 
             entity.ToTable("EvolutionChain");
 
@@ -74,7 +72,7 @@ public partial class PokedexCloneContext : DbContext
 
         modelBuilder.Entity<MachineType>(entity =>
         {
-            entity.HasKey(e => e.MachineTypeId).HasName("PK__MachineT__52CA84A001934FD6");
+            entity.HasKey(e => e.MachineTypeId).HasName("PK__MachineT__52CA84A091B9E87C");
 
             entity.ToTable("MachineType");
 
@@ -86,7 +84,7 @@ public partial class PokedexCloneContext : DbContext
 
         modelBuilder.Entity<Move>(entity =>
         {
-            entity.HasKey(e => e.MoveId).HasName("PK__Move__A931A43C45BFC9A1");
+            entity.HasKey(e => e.MoveId).HasName("PK__Move__A931A43CEEA99B85");
 
             entity.ToTable("Move");
 
@@ -119,7 +117,7 @@ public partial class PokedexCloneContext : DbContext
 
         modelBuilder.Entity<MoveCategory>(entity =>
         {
-            entity.HasKey(e => e.MoveCategoryId).HasName("PK__MoveCate__E687A05E77AE59A4");
+            entity.HasKey(e => e.MoveCategoryId).HasName("PK__MoveCate__E687A05EB062ADE9");
 
             entity.ToTable("MoveCategory");
 
@@ -131,7 +129,7 @@ public partial class PokedexCloneContext : DbContext
 
         modelBuilder.Entity<Pokemon>(entity =>
         {
-            entity.HasKey(e => e.PokemonId).HasName("PK__Pokemon__69C4E9C35AE8E3A2");
+            entity.HasKey(e => e.PokemonId).HasName("PK__Pokemon__69C4E9C3AE60581C");
 
             entity.ToTable("Pokemon");
 
@@ -248,9 +246,9 @@ public partial class PokedexCloneContext : DbContext
                 .HasConstraintName("FK__PokemonTy__TypeI__5629CD9C");
         });
 
-        modelBuilder.Entity<Type>(entity =>
+        /*modelBuilder.Entity<Type>(entity =>
         {
-            entity.HasKey(e => e.TypeId).HasName("PK__Type__516F0395A4456B89");
+            entity.HasKey(e => e.TypeId).HasName("PK__Type__516F039544ABDE4E");
 
             entity.ToTable("Type");
 
@@ -258,7 +256,7 @@ public partial class PokedexCloneContext : DbContext
             entity.Property(e => e.DisplayName)
                 .HasMaxLength(30)
                 .IsUnicode(false);
-        });
+        });*/
 
         OnModelCreatingPartial(modelBuilder);
     }

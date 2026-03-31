@@ -17,11 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\PokedexClone.Application\PokedexClone.Application.csproj" />
     <ProjectReference Include="..\PokedexClone.Domain\PokedexClone.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Extensions\" />
-    <Folder Include="Middlewares\" />
+    <ProjectReference Include="..\PokedexClone.Infrastructure\PokedexClone.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

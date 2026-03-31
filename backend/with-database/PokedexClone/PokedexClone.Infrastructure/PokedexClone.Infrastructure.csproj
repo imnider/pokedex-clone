@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Persistence\SqlServer\Repositories\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\PokedexClone.Domain\PokedexClone.Domain.csproj" />
   </ItemGroup>
 

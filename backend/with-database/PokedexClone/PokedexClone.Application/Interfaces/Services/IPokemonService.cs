@@ -6,10 +6,10 @@ namespace PokedexClone.Application.Interfaces.Services
 {
     public interface IPokemonService
     {
-        public GenericResponse<PokemonDto> Create(CreatePokemonRequest model);
-        public GenericResponse<List<PokemonDto>> GetAll(GetAllPokemonRequest model);
-        public GenericResponse<PokemonDto> GetById(int id);
-        public GenericResponse<PokemonDto> DeleteById(int id);
-        public GenericResponse<PokemonDto> UpdateById(int id, UpdatePokemonRequest model);
+        public Task<GenericResponse<PokemonDto>> Create(CreatePokemonRequest model);
+        public Task<GenericResponse<List<PokemonDto>>> GetAll(FilterPokemonRequest model);
+        public Task<GenericResponse<PokemonDto>> GetById(int id);
+        public Task<GenericResponse<PokemonDto>> Delete(int id);
+        public Task<GenericResponse<PokemonDto>> Update(int id, UpdatePokemonRequest model);
     }
 }

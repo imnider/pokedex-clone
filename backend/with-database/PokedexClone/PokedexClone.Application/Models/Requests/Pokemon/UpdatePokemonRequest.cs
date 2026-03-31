@@ -1,11 +1,19 @@
-﻿namespace PokedexClone.Application.Models.Requests.Pokemon
+﻿using PokedexClone.Shared.Constants;
+using System.ComponentModel.DataAnnotations;
+
+namespace PokedexClone.Application.Models.Requests.Pokemon
 {
     public class UpdatePokemonRequest
     {
         public int? PokemonID { get; set; } = null;
         public Guid? EvolutionChainID { get; set; } = null;
+
+        [MaxLength(30, ErrorMessage = ValidationConstants.MAX_LENGHT)]
         public string? DisplayName { get; set; } = null;
+
+        [MaxLength(255, ErrorMessage = ValidationConstants.MAX_LENGHT)]
         public string? Description { get; set; } = null;
+
         public int? Generation { get; set; } = null;
         public int? HP { get; set; } = null;
         public int? Attack { get; set; } = null;

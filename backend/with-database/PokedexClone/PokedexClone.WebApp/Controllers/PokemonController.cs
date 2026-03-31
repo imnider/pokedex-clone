@@ -11,35 +11,34 @@ namespace PokedexClone.WebApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreatePokemonRequest model)
         {
-            var rsp = pokemonService.Create(model);
+            var rsp = await pokemonService.Create(model);
             return Ok(rsp);
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll([FromQuery] GetAllPokemonRequest model)
+        public async Task<IActionResult> GetAll([FromQuery] FilterPokemonRequest model)
         {
-            var rsp = pokemonService.GetAll(model);
+            var rsp = await pokemonService.GetAll(model);
             return Ok(rsp);
         }
 
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var rsp = pokemonService.GetById(id);
+            var rsp = await pokemonService.GetById(id);
             return Ok(rsp);
         }
 
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteById(int id)
         {
-            var rsp = pokemonService.DeleteById(id);
-            return Ok(rsp);
+            return Ok();
         }
 
         [HttpPut("{id:int}")]
         public async Task<IActionResult> UpdateById(int id, [FromBody] UpdatePokemonRequest model)
         {
-            var rsp = pokemonService.UpdateById(id, model);
+            var rsp = await pokemonService.Update(id, model);
             return Ok(rsp);
         }
     }

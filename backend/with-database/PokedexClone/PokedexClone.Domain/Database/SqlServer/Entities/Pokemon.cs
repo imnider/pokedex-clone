@@ -23,7 +23,7 @@ public partial class Pokemon
 
     public int SpecialAttack { get; set; }
 
-    public int? SpecialDefense { get; set; }
+    public int SpecialDefense { get; set; }
 
     public int Speed { get; set; }
 

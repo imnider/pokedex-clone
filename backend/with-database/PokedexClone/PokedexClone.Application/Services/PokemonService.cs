@@ -3,100 +3,100 @@ using PokedexClone.Application.Interfaces.Services;
 using PokedexClone.Application.Models.DTOs;
 using PokedexClone.Application.Models.Requests.Pokemon;
 using PokedexClone.Application.Models.Responses;
-using PokedexClone.Shared;
+using PokedexClone.Domain.Database.SqlServer.Entities;
+using PokedexClone.Domain.Exceptions;
+using PokedexClone.Domain.Interfaces.Repositories;
+using PokedexClone.Shared.Constants;
 
 namespace PokedexClone.Application.Services
 {
-    public class PokemonService(Cache<PokemonDto> cache) : IPokemonService
+    public class PokemonService(IPokemonRepository repository) : IPokemonService
     {
-        public GenericResponse<PokemonDto> Create(CreatePokemonRequest model)
+        public async Task<GenericResponse<PokemonDto>> Create(CreatePokemonRequest model)
         {
-            var pokemon = new PokemonDto
+            var create = await repository.Create(new Pokemon
             {
-                EvolutionChainID = model.EvolutionChainID,
+                EvolutionChainId = model.EvolutionChainID,
                 DisplayName = model.DisplayName,
                 Description = model.Description,
                 Generation = model.Generation,
-                HP = model.HP,
+                Hp = model.HP,
                 Attack = model.Attack,
                 Defense = model.Defense,
                 SpecialAttack = model.SpecialAttack,
                 SpecialDefense = model.SpecialDefense,
                 Speed = model.Speed
+            });
+            // Mapear para el id
+            return ResponsesHelper.Create(Map(create), "Pokemon creado correctamente.");
+        }
+
+        public async Task<GenericResponse<PokemonDto>> Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<GenericResponse<List<PokemonDto>>> GetAll(FilterPokemonRequest model)
+        {
+            var queryable = repository.Queryable();
+
+            // Filtros
+            if (!string.IsNullOrWhiteSpace(model.DisplayName))
+            {
+                queryable = queryable.Where(x => x.DisplayName.Contains(model.DisplayName ?? ""));
+            }
+
+            // Paginación
+            var pokemons = queryable.Skip(model.Offset).Take(model.Limit).ToList();
+
+            // Mapeo
+            List<PokemonDto> mapped = [];
+            foreach (var pokemon in pokemons)
+            {
+                mapped.Add(Map(pokemon));
+            }
+
+            return ResponsesHelper.Create(mapped);
+        }
+
+        public async Task<GenericResponse<PokemonDto>> GetById(int id)
+        {
+            var pokemon = await GetPokemon(id);
+            return ResponsesHelper.Create(Map(pokemon));
+        }
+
+        public async Task<GenericResponse<PokemonDto>> Update(int id, UpdatePokemonRequest model)
+        {
+            throw new NotImplementedException();
+        }
+
+        // Verificar que el pokemon exista
+        private async Task<Pokemon> GetPokemon(int id)
+        {
+            return await repository.Get(id)
+                ?? throw new NotFoundException(ResponseConstants.POKEMON_NOT_EXISTS);
+        }
+
+        // Mapeo a Dto
+        private static PokemonDto Map(Pokemon pokemon)
+        {
+            return new PokemonDto
+            {
+                PokemonID = pokemon.PokemonId,
+                EvolutionChainID = pokemon.EvolutionChainId,
+                DisplayName = pokemon.DisplayName,
+                Description = pokemon.Description,
+                Generation = pokemon.Generation,
+                HP = pokemon.Hp,
+                Attack = pokemon.Attack,
+                Defense = pokemon.Defense,
+                SpecialAttack = pokemon.SpecialAttack,
+                SpecialDefense = pokemon.SpecialDefense,
+                Speed = pokemon.Speed,
+                CreatedAt = pokemon.CreatedAt,
+                UpdatedAt = pokemon.UpdatedAt,
+                DeletedAt = pokemon.DeletedAt,
             };
-
-            // Colocar el ID automáticamente
-            var pokemons = cache.Get();
-            if (pokemons == null || !pokemons.Any())
-            {
-                pokemon.PokemonID = 1;
-            }
-            else
-            {
-                int maxId = pokemons.Max(p => p.PokemonID);
-                pokemon.PokemonID = maxId += 1;
-            }
-
-            cache.Add(pokemon.PokemonID.ToString(), pokemon);
-            return ResponsesHelper.Create(pokemon, "Pokémon registrado exitosamente.");
-        }
-
-        public GenericResponse<PokemonDto> DeleteById(int id)
-        {
-            var pokemon = cache.Get(id.ToString());
-            if (pokemon is null)
-            {
-                return ResponsesHelper.Create(pokemon, "No se ha encontrado al Pokemon.");
-            }
-            cache.Delete(id.ToString());
-            return ResponsesHelper.Create(pokemon, $"Pokemon eliminado exitosamente: {pokemon.DisplayName}");
-        }
-
-        public GenericResponse<List<PokemonDto>> GetAll(GetAllPokemonRequest model)
-        {
-            var pokemons = cache.Get();
-            if (pokemons is null || !pokemons.Any())
-            {
-                return ResponsesHelper.Create(pokemons, "No se han encontrado Pokémon.");
-            }
-            else
-            {
-                int pokemonCount = pokemons.Count;
-                return ResponsesHelper.Create(pokemons, $"Se han encontrado {pokemonCount} Pokémon.");
-            }
-        }
-
-        public GenericResponse<PokemonDto> GetById(int id)
-        {
-            var pokemon = cache.Get(id.ToString());
-            if (pokemon is null)
-            {
-                return ResponsesHelper.Create(pokemon, "No se ha encontrado al Pokemon.");
-            }
-            return ResponsesHelper.Create(pokemon, $"Pokemon encontrado con éxito: {pokemon.DisplayName}.");
-        }
-
-        public GenericResponse<PokemonDto> UpdateById(int id, UpdatePokemonRequest model)
-        {
-            var pokemon = cache.Get(id.ToString());
-            if (pokemon is null)
-            {
-                return ResponsesHelper.Create(pokemon, "No se ha encontrado al Pokemon.");
-            }
-            if (model.PokemonID != null) pokemon.PokemonID = model.PokemonID ?? 0;
-            if (model.EvolutionChainID != null) pokemon.EvolutionChainID = model.EvolutionChainID ?? Guid.NewGuid();
-            if (model.DisplayName != null) pokemon.DisplayName = model.DisplayName;
-            if (model.Description != null) pokemon.Description = model.Description;
-            if (model.Generation != null) pokemon.Generation = model.Generation ?? 0;
-            if (model.HP != null) pokemon.HP = model.HP ?? 0;
-            if (model.Attack != null) pokemon.Attack = model.Attack ?? 0;
-            if (model.Defense != null) pokemon.Defense = model.Defense ?? 0;
-            if (model.SpecialAttack != null) pokemon.SpecialAttack = model.SpecialAttack ?? 0;
-            if (model.SpecialDefense != null) pokemon.SpecialDefense = model.SpecialDefense ?? 0;
-            if (model.Speed != null) pokemon.Speed = model.Speed ?? 0;
-            cache.Delete(id.ToString());
-            cache.Add(pokemon.PokemonID.ToString(), pokemon);
-            return ResponsesHelper.Create(pokemon, $"Pokemon modificado con éxito: {pokemon.DisplayName}");
         }
     }
 }
