@@ -50,7 +50,10 @@ CREATE TABLE Move(
 	Accuracy INT NOT NULL,
 	MinPP INT NOT NULL,
 	MaxPP INT NOT NULL,
-	Effect VARCHAR(255) DEFAULT 'Inflicts regular damage with no additional effect.'
+	Effect VARCHAR(255) DEFAULT 'Inflicts regular damage with no additional effect.',
+	CreatedAt DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME(),
+	UpdatedAt DATETIME2 NULL,
+	DeletedAt DATETIME2 NULL
 );
 GO
 
@@ -65,7 +68,10 @@ CREATE TABLE Pokemon(
 	Defense INT NOT NULL,
 	SpecialAttack INT NOT NULL,
 	SpecialDefense INT NULL,
-	Speed INT NOT NULL
+	Speed INT NOT NULL,
+	CreatedAt DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME(),
+	UpdatedAt DATETIME2 NULL,
+	DeletedAt DATETIME2 NULL
 );
 GO
 
