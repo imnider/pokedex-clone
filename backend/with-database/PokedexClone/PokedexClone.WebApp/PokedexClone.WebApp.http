@@ -1,0 +1,6 @@
+@PokedexClone.WebApp_HostAddress = http://localhost:5070
+
+GET {{PokedexClone.WebApp_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
