@@ -65,7 +65,7 @@ CREATE TABLE Pokemon(
 	Generation INT NOT NULL,
 	HP INT NOT NULL,
 	Attack INT NOT NULL,
-	Defense INT NOT NULL,
+	Defense INT NOT NOT NULL,
 	SpecialAttack INT NOT NULL,
 	SpecialDefense INT NULL,
 	Speed INT NOT NULL,
