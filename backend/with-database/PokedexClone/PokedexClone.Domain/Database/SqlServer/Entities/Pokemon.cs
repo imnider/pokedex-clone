@@ -9,6 +9,8 @@ public partial class Pokemon
 
     public Guid EvolutionChainId { get; set; }
 
+    public string DisplayName { get; set; } = null!;
+
     public string Description { get; set; } = null!;
 
     public int Generation { get; set; }
@@ -24,6 +26,12 @@ public partial class Pokemon
     public int? SpecialDefense { get; set; }
 
     public int Speed { get; set; }
+
+    public DateTime CreatedAt { get; set; }
+
+    public DateTime? UpdatedAt { get; set; }
+
+    public DateTime? DeletedAt { get; set; }
 
     public virtual EvolutionChain EvolutionChain { get; set; } = null!;
 

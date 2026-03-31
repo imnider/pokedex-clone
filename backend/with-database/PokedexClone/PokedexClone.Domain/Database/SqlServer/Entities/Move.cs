@@ -23,6 +23,12 @@ public partial class Move
 
     public string? Effect { get; set; }
 
+    public DateTime CreatedAt { get; set; }
+
+    public DateTime? UpdatedAt { get; set; }
+
+    public DateTime? DeletedAt { get; set; }
+
     public virtual MoveCategory MoveCategory { get; set; } = null!;
 
     public virtual ICollection<PokemonMove> PokemonMoves { get; set; } = new List<PokemonMove>();

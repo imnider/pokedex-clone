@@ -46,7 +46,7 @@ public partial class PokedexCloneContext : DbContext
     {
         modelBuilder.Entity<Ability>(entity =>
         {
-            entity.HasKey(e => e.AbilityId).HasName("PK__Ability__88B2505FE9280058");
+            entity.HasKey(e => e.AbilityId).HasName("PK__Ability__88B2505F163C3C0A");
 
             entity.ToTable("Ability");
 
@@ -63,7 +63,7 @@ public partial class PokedexCloneContext : DbContext
 
         modelBuilder.Entity<EvolutionChain>(entity =>
         {
-            entity.HasKey(e => e.EvolutionChainId).HasName("PK__Evolutio__A342BA5AE963232D");
+            entity.HasKey(e => e.EvolutionChainId).HasName("PK__Evolutio__A342BA5AA1C1E328");
 
             entity.ToTable("EvolutionChain");
 
@@ -74,7 +74,7 @@ public partial class PokedexCloneContext : DbContext
 
         modelBuilder.Entity<MachineType>(entity =>
         {
-            entity.HasKey(e => e.MachineTypeId).HasName("PK__MachineT__52CA84A0A680C4FA");
+            entity.HasKey(e => e.MachineTypeId).HasName("PK__MachineT__52CA84A001934FD6");
 
             entity.ToTable("MachineType");
 
@@ -86,13 +86,14 @@ public partial class PokedexCloneContext : DbContext
 
         modelBuilder.Entity<Move>(entity =>
         {
-            entity.HasKey(e => e.MoveId).HasName("PK__Move__A931A43CF00DA080");
+            entity.HasKey(e => e.MoveId).HasName("PK__Move__A931A43C45BFC9A1");
 
             entity.ToTable("Move");
 
             entity.Property(e => e.MoveId)
                 .HasDefaultValueSql("(newid())")
                 .HasColumnName("MoveID");
+            entity.Property(e => e.CreatedAt).HasDefaultValueSql("(sysutcdatetime())");
             entity.Property(e => e.DisplayName)
                 .HasMaxLength(30)
                 .IsUnicode(false);
@@ -118,7 +119,7 @@ public partial class PokedexCloneContext : DbContext
 
         modelBuilder.Entity<MoveCategory>(entity =>
         {
-            entity.HasKey(e => e.MoveCategoryId).HasName("PK__MoveCate__E687A05E1B628D7C");
+            entity.HasKey(e => e.MoveCategoryId).HasName("PK__MoveCate__E687A05E77AE59A4");
 
             entity.ToTable("MoveCategory");
 
@@ -130,13 +131,17 @@ public partial class PokedexCloneContext : DbContext
 
         modelBuilder.Entity<Pokemon>(entity =>
         {
-            entity.HasKey(e => e.PokemonId).HasName("PK__Pokemon__69C4E9C35F2F1F8E");
+            entity.HasKey(e => e.PokemonId).HasName("PK__Pokemon__69C4E9C35AE8E3A2");
 
             entity.ToTable("Pokemon");
 
             entity.Property(e => e.PokemonId).HasColumnName("PokemonID");
+            entity.Property(e => e.CreatedAt).HasDefaultValueSql("(sysutcdatetime())");
             entity.Property(e => e.Description)
                 .HasMaxLength(255)
+                .IsUnicode(false);
+            entity.Property(e => e.DisplayName)
+                .HasMaxLength(30)
                 .IsUnicode(false);
             entity.Property(e => e.EvolutionChainId).HasColumnName("EvolutionChainID");
             entity.Property(e => e.Hp).HasColumnName("HP");
@@ -144,7 +149,7 @@ public partial class PokedexCloneContext : DbContext
             entity.HasOne(d => d.EvolutionChain).WithMany(p => p.Pokemons)
                 .HasForeignKey(d => d.EvolutionChainId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Pokemon__Evoluti__48CFD27E");
+                .HasConstraintName("FK__Pokemon__Evoluti__49C3F6B7");
         });
 
         modelBuilder.Entity<PokemonAbility>(entity =>
@@ -161,12 +166,12 @@ public partial class PokedexCloneContext : DbContext
             entity.HasOne(d => d.Ability).WithMany(p => p.PokemonAbilities)
                 .HasForeignKey(d => d.AbilityId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__PokemonAb__Abili__59FA5E80");
+                .HasConstraintName("FK__PokemonAb__Abili__5BE2A6F2");
 
             entity.HasOne(d => d.Pokemon).WithMany(p => p.PokemonAbilities)
                 .HasForeignKey(d => d.PokemonId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__PokemonAb__Pokem__59063A47");
+                .HasConstraintName("FK__PokemonAb__Pokem__5AEE82B9");
         });
 
         modelBuilder.Entity<PokemonEvolution>(entity =>
@@ -188,12 +193,12 @@ public partial class PokedexCloneContext : DbContext
             entity.HasOne(d => d.FromPokemon).WithMany(p => p.PokemonEvolutionFromPokemons)
                 .HasForeignKey(d => d.FromPokemonId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__PokemonEv__FromP__5DCAEF64");
+                .HasConstraintName("FK__PokemonEv__FromP__5FB337D6");
 
             entity.HasOne(d => d.ToPokemon).WithMany(p => p.PokemonEvolutionToPokemons)
                 .HasForeignKey(d => d.ToPokemonId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__PokemonEv__ToPok__5EBF139D");
+                .HasConstraintName("FK__PokemonEv__ToPok__60A75C0F");
         });
 
         modelBuilder.Entity<PokemonMove>(entity =>
@@ -208,17 +213,17 @@ public partial class PokedexCloneContext : DbContext
 
             entity.HasOne(d => d.MachineType).WithMany(p => p.PokemonMoves)
                 .HasForeignKey(d => d.MachineTypeId)
-                .HasConstraintName("FK__PokemonMo__Machi__4D94879B");
+                .HasConstraintName("FK__PokemonMo__Machi__4F7CD00D");
 
             entity.HasOne(d => d.Move).WithMany(p => p.PokemonMoves)
                 .HasForeignKey(d => d.MoveId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__PokemonMo__MoveI__4CA06362");
+                .HasConstraintName("FK__PokemonMo__MoveI__4E88ABD4");
 
             entity.HasOne(d => d.Pokemon).WithMany(p => p.PokemonMoves)
                 .HasForeignKey(d => d.PokemonId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__PokemonMo__Pokem__4BAC3F29");
+                .HasConstraintName("FK__PokemonMo__Pokem__4D94879B");
         });
 
         modelBuilder.Entity<PokemonType>(entity =>
@@ -235,17 +240,17 @@ public partial class PokedexCloneContext : DbContext
             entity.HasOne(d => d.Pokemon).WithMany(p => p.PokemonTypes)
                 .HasForeignKey(d => d.PokemonId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__PokemonTy__Pokem__534D60F1");
+                .HasConstraintName("FK__PokemonTy__Pokem__5535A963");
 
             entity.HasOne(d => d.Type).WithMany(p => p.PokemonTypes)
                 .HasForeignKey(d => d.TypeId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__PokemonTy__TypeI__5441852A");
+                .HasConstraintName("FK__PokemonTy__TypeI__5629CD9C");
         });
 
         modelBuilder.Entity<Type>(entity =>
         {
-            entity.HasKey(e => e.TypeId).HasName("PK__Type__516F0395B42335D5");
+            entity.HasKey(e => e.TypeId).HasName("PK__Type__516F0395A4456B89");
 
             entity.ToTable("Type");
 
