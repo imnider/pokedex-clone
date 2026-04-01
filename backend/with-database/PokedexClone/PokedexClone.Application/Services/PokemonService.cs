@@ -7,6 +7,7 @@ using PokedexClone.Domain.Database.SqlServer.Entities;
 using PokedexClone.Domain.Exceptions;
 using PokedexClone.Domain.Interfaces.Repositories;
 using PokedexClone.Shared.Constants;
+using PokedexClone.Shared.Helpers;
 
 namespace PokedexClone.Application.Services
 {
@@ -27,13 +28,17 @@ namespace PokedexClone.Application.Services
                 SpecialDefense = model.SpecialDefense,
                 Speed = model.Speed
             });
-            // Mapear para el id
+            // Por alguna razón si no ingresas las estadísticas estas se ponen en 0. Lo arreglaré algún día.
             return ResponsesHelper.Create(Map(create), "Pokemon creado correctamente.");
         }
 
-        public async Task<GenericResponse<PokemonDto>> Delete(int id)
+        public async Task<GenericResponse<bool>> Delete(int id)
         {
-            throw new NotImplementedException();
+            var pokemon = await GetPokemon(id);
+            pokemon.DeletedAt = DateTimeHelper.UtcNow();
+
+            await repository.Update(pokemon);
+            return ResponsesHelper.Create(true);
         }
 
         public async Task<GenericResponse<List<PokemonDto>>> GetAll(FilterPokemonRequest model)
@@ -67,7 +72,23 @@ namespace PokedexClone.Application.Services
 
         public async Task<GenericResponse<PokemonDto>> Update(int id, UpdatePokemonRequest model)
         {
-            throw new NotImplementedException();
+            var pokemon = await GetPokemon(id);
+
+            pokemon.DisplayName = model.DisplayName ?? pokemon.DisplayName;
+            pokemon.Description = model.Description ?? pokemon.Description;
+            pokemon.SpriteUrl = model.SpriteUrl ?? pokemon.SpriteUrl;
+            pokemon.Generation = model.Generation ?? pokemon.Generation;
+            pokemon.Hp = model.HP ?? pokemon.Hp;
+            pokemon.Attack = model.Attack ?? pokemon.Attack;
+            pokemon.Defense = model.Defense ?? pokemon.Defense;
+            pokemon.SpecialAttack = model.SpecialAttack ?? pokemon.SpecialAttack;
+            pokemon.SpecialDefense = model.SpecialDefense ?? pokemon.SpecialDefense;
+            pokemon.Speed = model.Speed ?? pokemon.Speed;
+
+            pokemon.UpdatedAt = DateTimeHelper.UtcNow();
+
+            var update = await repository.Update(pokemon);
+            return ResponsesHelper.Create(Map(pokemon));
         }
 
         // Verificar que el pokemon exista

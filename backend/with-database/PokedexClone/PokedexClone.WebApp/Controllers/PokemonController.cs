@@ -32,7 +32,8 @@ namespace PokedexClone.WebApp.Controllers
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteById(int id)
         {
-            return Ok();
+            var rsp = await pokemonService.Delete(id);
+            return Ok(rsp);
         }
 
         [HttpPut("{id:int}")]

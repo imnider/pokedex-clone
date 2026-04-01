@@ -9,7 +9,7 @@ namespace PokedexClone.Application.Interfaces.Services
         public Task<GenericResponse<PokemonDto>> Create(CreatePokemonRequest model);
         public Task<GenericResponse<List<PokemonDto>>> GetAll(FilterPokemonRequest model);
         public Task<GenericResponse<PokemonDto>> GetById(int id);
-        public Task<GenericResponse<PokemonDto>> Delete(int id);
+        public Task<GenericResponse<bool>> Delete(int id);
         public Task<GenericResponse<PokemonDto>> Update(int id, UpdatePokemonRequest model);
     }
 }

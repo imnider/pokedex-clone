@@ -5,8 +5,6 @@ namespace PokedexClone.Application.Models.Requests.Pokemon
 {
     public class UpdatePokemonRequest
     {
-        public int? PokemonID { get; set; } = null;
-
         [MaxLength(30, ErrorMessage = ValidationConstants.MAX_LENGHT)]
         public string? DisplayName { get; set; } = null;
 
