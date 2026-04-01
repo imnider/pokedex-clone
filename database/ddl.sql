@@ -16,7 +16,7 @@ CREATE TABLE MoveCategory(
 );
 GO
 
-CREATE TABLE Type(
+CREATE TABLE ElementalType(
 	TypeID INT IDENTITY(1, 1) NOT NULL PRIMARY KEY,
 	DisplayName VARCHAR(30) NOT NULL
 );
@@ -43,7 +43,7 @@ GO
 -- Tablas normales
 CREATE TABLE Move(
 	MoveID UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID() PRIMARY KEY,
-	TypeID INT NOT NULL REFERENCES Type(TypeID),
+	TypeID INT NOT NULL REFERENCES ElementalType(TypeID),
 	MoveCategoryID INT NOT NULL REFERENCES MoveCategory(MoveCategoryID),
 	DisplayName VARCHAR(30) NOT NULL,
 	Power INT NOT NULL,
@@ -59,9 +59,9 @@ GO
 
 CREATE TABLE Pokemon(
 	PokemonID INT IDENTITY(1, 1) NOT NULL PRIMARY KEY,
-	EvolutionChainID UNIQUEIDENTIFIER NOT NULL REFERENCES EvolutionChain(EvolutionChainID),
 	DisplayName VARCHAR(30) NOT NULL,
 	Description VARCHAR(255) NOT NULL,
+	SpriteUrl VARCHAR(255) NOT NULL,
 	Generation INT NOT NULL,
 	HP INT NOT NULL,
 	Attack INT NOT NULL,
@@ -91,7 +91,7 @@ GO
 
 CREATE TABLE PokemonType(
 	PokemonID INT NOT NULL REFERENCES Pokemon(PokemonID),
-	TypeID INT NOT NULL REFERENCES Type(TypeID),
+	TypeID INT NOT NULL REFERENCES ElementalType(TypeID),
 	Slot INT NOT NULL,
 	CONSTRAINT PK_PokemonType_Pokemon_Slot
 		PRIMARY KEY (PokemonID, Slot),

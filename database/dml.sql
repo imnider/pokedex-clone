@@ -10,7 +10,7 @@ VALUES
 	('Status');
 GO
 
-INSERT INTO [Type]
+INSERT INTO [ElementalType]
 	(DisplayName)
 VALUES
 	('Normal'),
