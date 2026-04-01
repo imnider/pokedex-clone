@@ -7,11 +7,11 @@ public partial class Pokemon
 {
     public int PokemonId { get; set; }
 
-    public Guid EvolutionChainId { get; set; }
-
     public string DisplayName { get; set; } = null!;
 
     public string Description { get; set; } = null!;
+
+    public string SpriteUrl { get; set; } = null!;
 
     public int Generation { get; set; }
 
@@ -32,8 +32,6 @@ public partial class Pokemon
     public DateTime? UpdatedAt { get; set; }
 
     public DateTime? DeletedAt { get; set; }
-
-    public virtual EvolutionChain EvolutionChain { get; set; } = null!;
 
     public virtual ICollection<PokemonAbility> PokemonAbilities { get; set; } = new List<PokemonAbility>();
 

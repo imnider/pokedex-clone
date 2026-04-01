@@ -3,9 +3,9 @@
     public class PokemonDto
     {
         public int PokemonID { get; set; }
-        public Guid EvolutionChainID { get; set; }
         public string DisplayName { get; set; } = null!;
         public string Description { get; set; } = null!;
+        public string SpriteUrl { get; set; } = null!;
         public int Generation { get; set; }
         public int HP { get; set; }
         public int Attack { get; set; }

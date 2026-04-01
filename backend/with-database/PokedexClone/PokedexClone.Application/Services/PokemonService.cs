@@ -16,9 +16,9 @@ namespace PokedexClone.Application.Services
         {
             var create = await repository.Create(new Pokemon
             {
-                EvolutionChainId = model.EvolutionChainID,
                 DisplayName = model.DisplayName,
                 Description = model.Description,
+                SpriteUrl = model.SpriteUrl,
                 Generation = model.Generation,
                 Hp = model.HP,
                 Attack = model.Attack,
@@ -83,9 +83,9 @@ namespace PokedexClone.Application.Services
             return new PokemonDto
             {
                 PokemonID = pokemon.PokemonId,
-                EvolutionChainID = pokemon.EvolutionChainId,
                 DisplayName = pokemon.DisplayName,
                 Description = pokemon.Description,
+                SpriteUrl = pokemon.SpriteUrl,
                 Generation = pokemon.Generation,
                 HP = pokemon.Hp,
                 Attack = pokemon.Attack,

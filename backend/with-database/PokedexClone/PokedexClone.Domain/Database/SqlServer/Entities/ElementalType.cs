@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace PokedexClone.Domain.Database.SqlServer.Entities;
 
-public partial class Type
+public partial class ElementalType
 {
     public int TypeId { get; set; }
 

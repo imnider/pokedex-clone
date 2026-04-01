@@ -13,5 +13,5 @@ public partial class PokemonType
 
     public virtual Pokemon Pokemon { get; set; } = null!;
 
-    public virtual Type Type { get; set; } = null!;
+    public virtual ElementalType Type { get; set; } = null!;
 }

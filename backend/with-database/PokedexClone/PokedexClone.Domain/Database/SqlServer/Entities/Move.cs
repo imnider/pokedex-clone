@@ -33,5 +33,5 @@ public partial class Move
 
     public virtual ICollection<PokemonMove> PokemonMoves { get; set; } = new List<PokemonMove>();
 
-    public virtual Type Type { get; set; } = null!;
+    public virtual ElementalType Type { get; set; } = null!;
 }
