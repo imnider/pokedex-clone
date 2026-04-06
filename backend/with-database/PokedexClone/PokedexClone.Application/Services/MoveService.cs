@@ -7,29 +7,32 @@ namespace PokedexClone.Application.Services
 {
     public class MoveService() : IMoveService
     {
-        public GenericResponse<MoveDto> Create(CreateMoveRequest model)
+        public Task<GenericResponse<MoveDto>> Create(CreateMoveRequest model)
         {
             throw new NotImplementedException();
         }
 
-        public GenericResponse<MoveDto> DeleteById(Guid id)
+        public Task<GenericResponse<bool>> Delete(Guid id)
         {
             throw new NotImplementedException();
         }
 
-        public GenericResponse<List<MoveDto>> GetAll(GetAllMoveRequest model)
+        public Task<GenericResponse<List<MoveDto>>> GetAll(FilterMoveRequest model)
         {
             throw new NotImplementedException();
         }
 
-        public GenericResponse<MoveDto> GetById(Guid id)
+        public Task<GenericResponse<MoveDto>> GetById(Guid id)
         {
             throw new NotImplementedException();
         }
 
-        public GenericResponse<MoveDto> UpdateById(Guid id, UpdateMoveRequest model)
+        public Task<GenericResponse<MoveDto>> Update(Guid id, UpdateMoveRequest model)
         {
             throw new NotImplementedException();
         }
+
+        // Verificar que el movimiento exista
+
     }
 }

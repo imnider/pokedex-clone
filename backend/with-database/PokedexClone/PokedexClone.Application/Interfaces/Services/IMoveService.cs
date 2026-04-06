@@ -6,10 +6,10 @@ namespace PokedexClone.Application.Interfaces.Services
 {
     public interface IMoveService
     {
-        public GenericResponse<MoveDto> Create(CreateMoveRequest model);
-        public GenericResponse<List<MoveDto>> GetAll(GetAllMoveRequest model);
-        public GenericResponse<MoveDto> GetById(Guid id);
-        public GenericResponse<MoveDto> DeleteById(Guid id);
-        public GenericResponse<MoveDto> UpdateById(Guid id, UpdateMoveRequest model);
+        public Task<GenericResponse<MoveDto>> Create(CreateMoveRequest model);
+        public Task<GenericResponse<List<MoveDto>>> GetAll(FilterMoveRequest model);
+        public Task<GenericResponse<MoveDto>> GetById(Guid id);
+        public Task<GenericResponse<bool>> Delete(Guid id);
+        public Task<GenericResponse<MoveDto>> Update(Guid id, UpdateMoveRequest model);
     }
 }
