@@ -11,5 +11,8 @@
         public int MinPP { get; set; }
         public int MaxPP { get; set; }
         public string Effect { get; set; } = null!;
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
+        public DateTime DeletedAt { get; set; }
     }
 }
