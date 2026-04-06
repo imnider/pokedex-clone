@@ -11,35 +11,35 @@ namespace PokedexClone.WebApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateMoveRequest model)
         {
-            var rsp = moveService.Create(model);
+            var rsp = await moveService.Create(model);
             return Ok(rsp);
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll([FromQuery] GetAllMoveRequest model)
+        public async Task<IActionResult> GetAll([FromQuery] FilterMoveRequest model)
         {
-            var rsp = moveService.GetAll(model);
+            var rsp = await moveService.GetAll(model);
             return Ok(rsp);
         }
 
         [HttpGet("{id:guid}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var rsp = moveService.GetById(id);
+            var rsp = await moveService.GetById(id);
             return Ok(rsp);
         }
 
         [HttpDelete("{id:guid}")]
-        public async Task<IActionResult> DeleteById(Guid id)
+        public async Task<IActionResult> Delete(Guid id)
         {
-            var rsp = moveService.DeleteById(id);
+            var rsp = await moveService.Delete(id);
             return Ok(rsp);
         }
 
         [HttpPut("{id:guid}")]
-        public async Task<IActionResult> DeleteById(Guid id, UpdateMoveRequest model)
+        public async Task<IActionResult> Update(Guid id, UpdateMoveRequest model)
         {
-            var rsp = moveService.UpdateById(id, model);
+            var rsp = await moveService.Update(id, model);
             return Ok(rsp);
         }
 

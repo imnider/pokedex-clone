@@ -31,6 +31,7 @@ namespace PokedexClone.WebApp.Extensions
         public static void AddRepositories(this IServiceCollection services)
         {
             services.AddTransient<IPokemonRepository, PokemonRepository>();
+            services.AddTransient<IMoveRepository, MoveRepository>();
         }
 
         public static void AddServices(this IServiceCollection services)

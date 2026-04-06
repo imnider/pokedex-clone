@@ -10,9 +10,9 @@
         public int Accuracy { get; set; }
         public int MinPP { get; set; }
         public int MaxPP { get; set; }
-        public string Effect { get; set; } = null!;
+        public string? Effect { get; set; }
         public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
-        public DateTime DeletedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        public DateTime? DeletedAt { get; set; }
     }
 }

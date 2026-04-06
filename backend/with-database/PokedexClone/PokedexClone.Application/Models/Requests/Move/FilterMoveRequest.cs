@@ -1,6 +1,6 @@
 ﻿namespace PokedexClone.Application.Models.Requests.Move
 {
-    public class FilterMoveRequest
+    public class FilterMoveRequest : BaseRequest
     {
         public int? TypeID { get; set; }
         public int? MoveCategoryID { get; set; }
