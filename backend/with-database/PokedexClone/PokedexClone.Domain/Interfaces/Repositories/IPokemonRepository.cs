@@ -6,9 +6,9 @@ namespace PokedexClone.Domain.Interfaces.Repositories
     {
         public Task<Pokemon> Create(Pokemon pokemon);
         public Task<Pokemon> Get(int id);
-        IQueryable<Pokemon> Queryable();
-        Task<bool> IfExist(int id);
-        Task<bool> IfExist(string DisplayName);
-        Task<Pokemon> Update(Pokemon pokemon);
+        public IQueryable<Pokemon> Queryable();
+        public Task<bool> IfExist(int id);
+        public Task<bool> IfExist(string DisplayName);
+        public Task<Pokemon> Update(Pokemon pokemon);
     }
 }
