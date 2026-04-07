@@ -4,6 +4,8 @@ using PokedexClone.Domain.Database.SqlServer.Context;
 using PokedexClone.Domain.Interfaces.Repositories;
 using PokedexClone.Infrastructure.Persistence.SqlServer.Repositories;
 using PokedexClone.WebApp.Middlewares;
+using Serilog;
+using Serilog.Sinks.MSSqlServer;
 
 namespace PokedexClone.WebApp.Extensions
 {
@@ -26,6 +28,9 @@ namespace PokedexClone.WebApp.Extensions
 
             // Middlewares
             services.AddMiddlewares();
+
+            // Logging
+            AddLogging(services);
         }
 
         public static void AddRepositories(this IServiceCollection services)
@@ -43,6 +48,24 @@ namespace PokedexClone.WebApp.Extensions
         public static void AddMiddlewares(this IServiceCollection services)
         {
             services.AddScoped<ErrorHandlerMiddleware>();
+        }
+
+        public static void AddLogging(this IServiceCollection services)
+        {
+            services.AddSerilog();
+
+            Log.Logger = new LoggerConfiguration()
+                .WriteTo
+                .MSSqlServer(
+                    connectionString: "Server=localhost,1433;User=sa;Password=Admin1234@;Database=PokedexClone;TrustServerCertificate=True;",
+                    sinkOptions: new MSSqlServerSinkOptions
+                    {
+                        TableName = "LogEvents",
+                        AutoCreateSqlTable = true
+                    })
+                .WriteTo.Console()
+                .WriteTo.File(Path.Combine(Directory.GetCurrentDirectory(), "logs", "log.txt"), rollingInterval: RollingInterval.Day)
+                .CreateLogger();
         }
     }
 }
