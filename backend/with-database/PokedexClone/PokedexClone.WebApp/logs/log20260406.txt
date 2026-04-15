@@ -16,3 +16,296 @@ System.InvalidOperationException: A suitable constructor for type 'PokedexClone.
    at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
    at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
    at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-04-06 21:34:21.134 -05:00 [INF] Now listening on: http://localhost:5070
+2026-04-06 21:34:21.185 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-06 21:34:21.186 -05:00 [INF] Hosting environment: Development
+2026-04-06 21:34:21.187 -05:00 [INF] Content root path: D:\Documents\workspace\pokedex-clone\backend\with-database\PokedexClone\PokedexClone.WebApp
+2026-04-06 21:35:13.005 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5070/api/pokemon - application/json 116
+2026-04-06 21:35:13.078 -05:00 [WRN] Failed to determine the https port for redirect.
+2026-04-06 21:35:13.084 -05:00 [INF] Executing endpoint 'PokedexClone.WebApp.Controllers.PokemonController.Create (PokedexClone.WebApp)'
+2026-04-06 21:35:13.116 -05:00 [INF] Route matched with {action = "Create", controller = "Pokemon"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(PokedexClone.Application.Models.Requests.Pokemon.CreatePokemonRequest) on controller PokedexClone.WebApp.Controllers.PokemonController (PokedexClone.WebApp).
+2026-04-06 21:35:13.939 -05:00 [INF] Executed DbCommand (24ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (Size = 255) (DbType = AnsiString), @p4='?' (Size = 30) (DbType = AnsiString), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (Size = 255) (DbType = AnsiString), @p11='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Pokemon] ([Attack], [Defense], [DeletedAt], [Description], [DisplayName], [Generation], [HP], [SpecialAttack], [SpecialDefense], [Speed], [SpriteUrl], [UpdatedAt])
+OUTPUT INSERTED.[PokemonID], INSERTED.[CreatedAt]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+2026-04-06 21:35:13.971 -05:00 [INF] Executing OkObjectResult, writing value of type 'PokedexClone.Application.Models.Responses.GenericResponse`1[[PokedexClone.Application.Models.DTOs.PokemonDto, PokedexClone.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-06 21:35:13.989 -05:00 [INF] Executed action PokedexClone.WebApp.Controllers.PokemonController.Create (PokedexClone.WebApp) in 868.3342ms
+2026-04-06 21:35:13.993 -05:00 [INF] Executed endpoint 'PokedexClone.WebApp.Controllers.PokemonController.Create (PokedexClone.WebApp)'
+2026-04-06 21:35:14.000 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5070/api/pokemon - 200 null application/json; charset=utf-8 997.0514ms
+2026-04-06 21:35:18.584 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5070/api/pokemon - application/json 116
+2026-04-06 21:35:18.589 -05:00 [INF] Executing endpoint 'PokedexClone.WebApp.Controllers.PokemonController.Create (PokedexClone.WebApp)'
+2026-04-06 21:35:18.591 -05:00 [INF] Route matched with {action = "Create", controller = "Pokemon"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(PokedexClone.Application.Models.Requests.Pokemon.CreatePokemonRequest) on controller PokedexClone.WebApp.Controllers.PokemonController (PokedexClone.WebApp).
+2026-04-06 21:35:18.645 -05:00 [INF] Executed DbCommand (9ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (Size = 255) (DbType = AnsiString), @p4='?' (Size = 30) (DbType = AnsiString), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (Size = 255) (DbType = AnsiString), @p11='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Pokemon] ([Attack], [Defense], [DeletedAt], [Description], [DisplayName], [Generation], [HP], [SpecialAttack], [SpecialDefense], [Speed], [SpriteUrl], [UpdatedAt])
+OUTPUT INSERTED.[PokemonID], INSERTED.[CreatedAt]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+2026-04-06 21:35:18.648 -05:00 [INF] Executing OkObjectResult, writing value of type 'PokedexClone.Application.Models.Responses.GenericResponse`1[[PokedexClone.Application.Models.DTOs.PokemonDto, PokedexClone.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-06 21:35:18.650 -05:00 [INF] Executed action PokedexClone.WebApp.Controllers.PokemonController.Create (PokedexClone.WebApp) in 56.386ms
+2026-04-06 21:35:18.651 -05:00 [INF] Executed endpoint 'PokedexClone.WebApp.Controllers.PokemonController.Create (PokedexClone.WebApp)'
+2026-04-06 21:35:18.652 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5070/api/pokemon - 200 null application/json; charset=utf-8 68.6377ms
+2026-04-06 21:35:22.599 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5070/api/pokemon - null null
+2026-04-06 21:35:22.603 -05:00 [INF] Executing endpoint 'PokedexClone.WebApp.Controllers.PokemonController.GetAll (PokedexClone.WebApp)'
+2026-04-06 21:35:22.609 -05:00 [INF] Route matched with {action = "GetAll", controller = "Pokemon"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(PokedexClone.Application.Models.Requests.Pokemon.FilterPokemonRequest) on controller PokedexClone.WebApp.Controllers.PokemonController (PokedexClone.WebApp).
+2026-04-06 21:35:22.706 -05:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-04-06 21:35:22.707 -05:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-04-06 21:35:22.785 -05:00 [INF] Executed DbCommand (7ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[PokemonID], [p].[Attack], [p].[CreatedAt], [p].[Defense], [p].[DeletedAt], [p].[Description], [p].[DisplayName], [p].[Generation], [p].[HP], [p].[SpecialAttack], [p].[SpecialDefense], [p].[Speed], [p].[SpriteUrl], [p].[UpdatedAt]
+FROM [Pokemon] AS [p]
+WHERE [p].[DeletedAt] IS NULL
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2026-04-06 21:35:22.792 -05:00 [INF] Executing OkObjectResult, writing value of type 'PokedexClone.Application.Models.Responses.GenericResponse`1[[System.Collections.Generic.List`1[[PokedexClone.Application.Models.DTOs.PokemonDto, PokedexClone.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-06 21:35:22.795 -05:00 [INF] Executed action PokedexClone.WebApp.Controllers.PokemonController.GetAll (PokedexClone.WebApp) in 183.6295ms
+2026-04-06 21:35:22.797 -05:00 [INF] Executed endpoint 'PokedexClone.WebApp.Controllers.PokemonController.GetAll (PokedexClone.WebApp)'
+2026-04-06 21:35:22.798 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5070/api/pokemon - 200 null application/json; charset=utf-8 199.4232ms
+2026-04-06 21:35:34.315 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5070/api/pokemon - application/json 88
+2026-04-06 21:35:34.318 -05:00 [INF] Executing endpoint 'PokedexClone.WebApp.Controllers.PokemonController.Create (PokedexClone.WebApp)'
+2026-04-06 21:35:34.319 -05:00 [INF] Route matched with {action = "Create", controller = "Pokemon"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(PokedexClone.Application.Models.Requests.Pokemon.CreatePokemonRequest) on controller PokedexClone.WebApp.Controllers.PokemonController (PokedexClone.WebApp).
+2026-04-06 21:35:34.325 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-04-06 21:35:34.338 -05:00 [INF] Executed action PokedexClone.WebApp.Controllers.PokemonController.Create (PokedexClone.WebApp) in 16.2387ms
+2026-04-06 21:35:34.339 -05:00 [INF] Executed endpoint 'PokedexClone.WebApp.Controllers.PokemonController.Create (PokedexClone.WebApp)'
+2026-04-06 21:35:34.341 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5070/api/pokemon - 400 null application/problem+json; charset=utf-8 26.0122ms
+2026-04-06 21:37:42.603 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5070/api/pokemon - application/json 39
+2026-04-06 21:37:42.606 -05:00 [INF] Executing endpoint 'PokedexClone.WebApp.Controllers.PokemonController.Create (PokedexClone.WebApp)'
+2026-04-06 21:37:42.607 -05:00 [INF] Route matched with {action = "Create", controller = "Pokemon"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(PokedexClone.Application.Models.Requests.Pokemon.CreatePokemonRequest) on controller PokedexClone.WebApp.Controllers.PokemonController (PokedexClone.WebApp).
+2026-04-06 21:37:42.616 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-04-06 21:37:42.618 -05:00 [INF] Executed action PokedexClone.WebApp.Controllers.PokemonController.Create (PokedexClone.WebApp) in 8.9465ms
+2026-04-06 21:37:42.620 -05:00 [INF] Executed endpoint 'PokedexClone.WebApp.Controllers.PokemonController.Create (PokedexClone.WebApp)'
+2026-04-06 21:37:42.621 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5070/api/pokemon - 400 null application/problem+json; charset=utf-8 17.7503ms
+2026-04-06 21:38:59.619 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5070/api/pokemon - application/json 38
+2026-04-06 21:38:59.622 -05:00 [INF] Executing endpoint 'PokedexClone.WebApp.Controllers.PokemonController.Create (PokedexClone.WebApp)'
+2026-04-06 21:38:59.624 -05:00 [INF] Route matched with {action = "Create", controller = "Pokemon"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(PokedexClone.Application.Models.Requests.Pokemon.CreatePokemonRequest) on controller PokedexClone.WebApp.Controllers.PokemonController (PokedexClone.WebApp).
+2026-04-06 21:38:59.627 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-04-06 21:38:59.629 -05:00 [INF] Executed action PokedexClone.WebApp.Controllers.PokemonController.Create (PokedexClone.WebApp) in 2.7327ms
+2026-04-06 21:38:59.631 -05:00 [INF] Executed endpoint 'PokedexClone.WebApp.Controllers.PokemonController.Create (PokedexClone.WebApp)'
+2026-04-06 21:38:59.633 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5070/api/pokemon - 400 null application/problem+json; charset=utf-8 13.9071ms
+2026-04-06 21:39:06.088 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5070/api/pokemon - application/json 39
+2026-04-06 21:39:06.092 -05:00 [INF] Executing endpoint 'PokedexClone.WebApp.Controllers.PokemonController.Create (PokedexClone.WebApp)'
+2026-04-06 21:39:06.094 -05:00 [INF] Route matched with {action = "Create", controller = "Pokemon"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(PokedexClone.Application.Models.Requests.Pokemon.CreatePokemonRequest) on controller PokedexClone.WebApp.Controllers.PokemonController (PokedexClone.WebApp).
+2026-04-06 21:39:06.097 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-04-06 21:39:06.099 -05:00 [INF] Executed action PokedexClone.WebApp.Controllers.PokemonController.Create (PokedexClone.WebApp) in 2.9639ms
+2026-04-06 21:39:06.101 -05:00 [INF] Executed endpoint 'PokedexClone.WebApp.Controllers.PokemonController.Create (PokedexClone.WebApp)'
+2026-04-06 21:39:06.102 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5070/api/pokemon - 400 null application/problem+json; charset=utf-8 13.8789ms
+2026-04-06 21:39:14.501 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5070/api/pokemon - application/json 38
+2026-04-06 21:39:14.504 -05:00 [INF] Executing endpoint 'PokedexClone.WebApp.Controllers.PokemonController.Create (PokedexClone.WebApp)'
+2026-04-06 21:39:14.506 -05:00 [INF] Route matched with {action = "Create", controller = "Pokemon"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(PokedexClone.Application.Models.Requests.Pokemon.CreatePokemonRequest) on controller PokedexClone.WebApp.Controllers.PokemonController (PokedexClone.WebApp).
+2026-04-06 21:39:14.509 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-04-06 21:39:14.511 -05:00 [INF] Executed action PokedexClone.WebApp.Controllers.PokemonController.Create (PokedexClone.WebApp) in 2.5625ms
+2026-04-06 21:39:14.513 -05:00 [INF] Executed endpoint 'PokedexClone.WebApp.Controllers.PokemonController.Create (PokedexClone.WebApp)'
+2026-04-06 21:39:14.514 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5070/api/pokemon - 400 null application/problem+json; charset=utf-8 13.64ms
+2026-04-06 21:39:27.170 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5070/api/pokemon - null null
+2026-04-06 21:39:27.173 -05:00 [INF] Executing endpoint 'PokedexClone.WebApp.Controllers.PokemonController.GetAll (PokedexClone.WebApp)'
+2026-04-06 21:39:27.175 -05:00 [INF] Route matched with {action = "GetAll", controller = "Pokemon"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(PokedexClone.Application.Models.Requests.Pokemon.FilterPokemonRequest) on controller PokedexClone.WebApp.Controllers.PokemonController (PokedexClone.WebApp).
+2026-04-06 21:39:27.185 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[PokemonID], [p].[Attack], [p].[CreatedAt], [p].[Defense], [p].[DeletedAt], [p].[Description], [p].[DisplayName], [p].[Generation], [p].[HP], [p].[SpecialAttack], [p].[SpecialDefense], [p].[Speed], [p].[SpriteUrl], [p].[UpdatedAt]
+FROM [Pokemon] AS [p]
+WHERE [p].[DeletedAt] IS NULL
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2026-04-06 21:39:27.188 -05:00 [INF] Executing OkObjectResult, writing value of type 'PokedexClone.Application.Models.Responses.GenericResponse`1[[System.Collections.Generic.List`1[[PokedexClone.Application.Models.DTOs.PokemonDto, PokedexClone.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-06 21:39:27.190 -05:00 [INF] Executed action PokedexClone.WebApp.Controllers.PokemonController.GetAll (PokedexClone.WebApp) in 13.0099ms
+2026-04-06 21:39:27.192 -05:00 [INF] Executed endpoint 'PokedexClone.WebApp.Controllers.PokemonController.GetAll (PokedexClone.WebApp)'
+2026-04-06 21:39:27.193 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5070/api/pokemon - 200 null application/json; charset=utf-8 22.9749ms
+2026-04-06 21:39:31.844 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5070/api/pokemon/1 - text/plain 81
+2026-04-06 21:39:31.849 -05:00 [INF] Executing endpoint 'PokedexClone.WebApp.Controllers.PokemonController.GetById (PokedexClone.WebApp)'
+2026-04-06 21:39:31.854 -05:00 [INF] Route matched with {action = "GetById", controller = "Pokemon"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int32) on controller PokedexClone.WebApp.Controllers.PokemonController (PokedexClone.WebApp).
+2026-04-06 21:39:31.882 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[PokemonID], [p].[Attack], [p].[CreatedAt], [p].[Defense], [p].[DeletedAt], [p].[Description], [p].[DisplayName], [p].[Generation], [p].[HP], [p].[SpecialAttack], [p].[SpecialDefense], [p].[Speed], [p].[SpriteUrl], [p].[UpdatedAt]
+FROM [Pokemon] AS [p]
+WHERE [p].[PokemonID] = @__id_0 AND [p].[DeletedAt] IS NULL
+2026-04-06 21:39:31.889 -05:00 [INF] Executed action PokedexClone.WebApp.Controllers.PokemonController.GetById (PokedexClone.WebApp) in 32.8276ms
+2026-04-06 21:39:31.892 -05:00 [INF] Executed endpoint 'PokedexClone.WebApp.Controllers.PokemonController.GetById (PokedexClone.WebApp)'
+2026-04-06 21:39:31.896 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5070/api/pokemon/1 - 404 null application/json; charset=utf-8 52.1029ms
+2026-04-06 21:39:39.818 -05:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5070/api/pokemon/1 - null null
+2026-04-06 21:39:39.822 -05:00 [INF] Executing endpoint 'PokedexClone.WebApp.Controllers.PokemonController.DeleteById (PokedexClone.WebApp)'
+2026-04-06 21:39:39.827 -05:00 [INF] Route matched with {action = "DeleteById", controller = "Pokemon"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteById(Int32) on controller PokedexClone.WebApp.Controllers.PokemonController (PokedexClone.WebApp).
+2026-04-06 21:39:39.835 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[PokemonID], [p].[Attack], [p].[CreatedAt], [p].[Defense], [p].[DeletedAt], [p].[Description], [p].[DisplayName], [p].[Generation], [p].[HP], [p].[SpecialAttack], [p].[SpecialDefense], [p].[Speed], [p].[SpriteUrl], [p].[UpdatedAt]
+FROM [Pokemon] AS [p]
+WHERE [p].[PokemonID] = @__id_0 AND [p].[DeletedAt] IS NULL
+2026-04-06 21:39:39.839 -05:00 [INF] Executed action PokedexClone.WebApp.Controllers.PokemonController.DeleteById (PokedexClone.WebApp) in 8.8424ms
+2026-04-06 21:39:39.841 -05:00 [INF] Executed endpoint 'PokedexClone.WebApp.Controllers.PokemonController.DeleteById (PokedexClone.WebApp)'
+2026-04-06 21:39:39.843 -05:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5070/api/pokemon/1 - 404 null application/json; charset=utf-8 24.7546ms
+2026-04-06 21:39:45.920 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5070/api/pokemon/2 - text/plain 81
+2026-04-06 21:39:45.923 -05:00 [INF] Executing endpoint 'PokedexClone.WebApp.Controllers.PokemonController.GetById (PokedexClone.WebApp)'
+2026-04-06 21:39:45.925 -05:00 [INF] Route matched with {action = "GetById", controller = "Pokemon"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int32) on controller PokedexClone.WebApp.Controllers.PokemonController (PokedexClone.WebApp).
+2026-04-06 21:39:45.931 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[PokemonID], [p].[Attack], [p].[CreatedAt], [p].[Defense], [p].[DeletedAt], [p].[Description], [p].[DisplayName], [p].[Generation], [p].[HP], [p].[SpecialAttack], [p].[SpecialDefense], [p].[Speed], [p].[SpriteUrl], [p].[UpdatedAt]
+FROM [Pokemon] AS [p]
+WHERE [p].[PokemonID] = @__id_0 AND [p].[DeletedAt] IS NULL
+2026-04-06 21:39:45.934 -05:00 [INF] Executing OkObjectResult, writing value of type 'PokedexClone.Application.Models.Responses.GenericResponse`1[[PokedexClone.Application.Models.DTOs.PokemonDto, PokedexClone.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-06 21:39:45.937 -05:00 [INF] Executed action PokedexClone.WebApp.Controllers.PokemonController.GetById (PokedexClone.WebApp) in 9.8933ms
+2026-04-06 21:39:45.938 -05:00 [INF] Executed endpoint 'PokedexClone.WebApp.Controllers.PokemonController.GetById (PokedexClone.WebApp)'
+2026-04-06 21:39:45.940 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5070/api/pokemon/2 - 200 null application/json; charset=utf-8 19.5619ms
+2026-04-06 21:39:55.118 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5070/api/pokemon/2 - text/plain 81
+2026-04-06 21:39:55.121 -05:00 [INF] Executing endpoint 'PokedexClone.WebApp.Controllers.PokemonController.GetById (PokedexClone.WebApp)'
+2026-04-06 21:39:55.123 -05:00 [INF] Route matched with {action = "GetById", controller = "Pokemon"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int32) on controller PokedexClone.WebApp.Controllers.PokemonController (PokedexClone.WebApp).
+2026-04-06 21:39:55.128 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[PokemonID], [p].[Attack], [p].[CreatedAt], [p].[Defense], [p].[DeletedAt], [p].[Description], [p].[DisplayName], [p].[Generation], [p].[HP], [p].[SpecialAttack], [p].[SpecialDefense], [p].[Speed], [p].[SpriteUrl], [p].[UpdatedAt]
+FROM [Pokemon] AS [p]
+WHERE [p].[PokemonID] = @__id_0 AND [p].[DeletedAt] IS NULL
+2026-04-06 21:39:55.131 -05:00 [INF] Executing OkObjectResult, writing value of type 'PokedexClone.Application.Models.Responses.GenericResponse`1[[PokedexClone.Application.Models.DTOs.PokemonDto, PokedexClone.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-06 21:39:55.133 -05:00 [INF] Executed action PokedexClone.WebApp.Controllers.PokemonController.GetById (PokedexClone.WebApp) in 8.2346ms
+2026-04-06 21:39:55.135 -05:00 [INF] Executed endpoint 'PokedexClone.WebApp.Controllers.PokemonController.GetById (PokedexClone.WebApp)'
+2026-04-06 21:39:55.137 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5070/api/pokemon/2 - 200 null application/json; charset=utf-8 18.9613ms
+2026-04-06 21:40:06.772 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5070/api/pokemon/2 - application/json 24
+2026-04-06 21:40:06.776 -05:00 [INF] Executing endpoint 'PokedexClone.WebApp.Controllers.PokemonController.UpdateById (PokedexClone.WebApp)'
+2026-04-06 21:40:06.781 -05:00 [INF] Route matched with {action = "UpdateById", controller = "Pokemon"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateById(Int32, PokedexClone.Application.Models.Requests.Pokemon.UpdatePokemonRequest) on controller PokedexClone.WebApp.Controllers.PokemonController (PokedexClone.WebApp).
+2026-04-06 21:40:06.793 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[PokemonID], [p].[Attack], [p].[CreatedAt], [p].[Defense], [p].[DeletedAt], [p].[Description], [p].[DisplayName], [p].[Generation], [p].[HP], [p].[SpecialAttack], [p].[SpecialDefense], [p].[Speed], [p].[SpriteUrl], [p].[UpdatedAt]
+FROM [Pokemon] AS [p]
+WHERE [p].[PokemonID] = @__id_0 AND [p].[DeletedAt] IS NULL
+2026-04-06 21:40:06.812 -05:00 [INF] Executed DbCommand (12ms) [Parameters=[@p13='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime2), @p4='?' (Size = 255) (DbType = AnsiString), @p5='?' (Size = 30) (DbType = AnsiString), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32), @p11='?' (Size = 255) (DbType = AnsiString), @p12='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Pokemon] SET [Attack] = @p0, [CreatedAt] = @p1, [Defense] = @p2, [DeletedAt] = @p3, [Description] = @p4, [DisplayName] = @p5, [Generation] = @p6, [HP] = @p7, [SpecialAttack] = @p8, [SpecialDefense] = @p9, [Speed] = @p10, [SpriteUrl] = @p11, [UpdatedAt] = @p12
+OUTPUT 1
+WHERE [PokemonID] = @p13;
+2026-04-06 21:40:06.818 -05:00 [INF] Executing OkObjectResult, writing value of type 'PokedexClone.Application.Models.Responses.GenericResponse`1[[PokedexClone.Application.Models.DTOs.PokemonDto, PokedexClone.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-06 21:40:06.820 -05:00 [INF] Executed action PokedexClone.WebApp.Controllers.PokemonController.UpdateById (PokedexClone.WebApp) in 37.0546ms
+2026-04-06 21:40:06.822 -05:00 [INF] Executed endpoint 'PokedexClone.WebApp.Controllers.PokemonController.UpdateById (PokedexClone.WebApp)'
+2026-04-06 21:40:06.824 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5070/api/pokemon/2 - 200 null application/json; charset=utf-8 52.1818ms
+2026-04-06 21:40:18.019 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5070/api/pokemon/1 - text/plain 81
+2026-04-06 21:40:18.022 -05:00 [INF] Executing endpoint 'PokedexClone.WebApp.Controllers.PokemonController.GetById (PokedexClone.WebApp)'
+2026-04-06 21:40:18.023 -05:00 [INF] Route matched with {action = "GetById", controller = "Pokemon"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int32) on controller PokedexClone.WebApp.Controllers.PokemonController (PokedexClone.WebApp).
+2026-04-06 21:40:18.030 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[PokemonID], [p].[Attack], [p].[CreatedAt], [p].[Defense], [p].[DeletedAt], [p].[Description], [p].[DisplayName], [p].[Generation], [p].[HP], [p].[SpecialAttack], [p].[SpecialDefense], [p].[Speed], [p].[SpriteUrl], [p].[UpdatedAt]
+FROM [Pokemon] AS [p]
+WHERE [p].[PokemonID] = @__id_0 AND [p].[DeletedAt] IS NULL
+2026-04-06 21:40:18.033 -05:00 [INF] Executed action PokedexClone.WebApp.Controllers.PokemonController.GetById (PokedexClone.WebApp) in 7.151ms
+2026-04-06 21:40:18.035 -05:00 [INF] Executed endpoint 'PokedexClone.WebApp.Controllers.PokemonController.GetById (PokedexClone.WebApp)'
+2026-04-06 21:40:18.038 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5070/api/pokemon/1 - 404 null application/json; charset=utf-8 18.8742ms
+2026-04-06 21:40:23.522 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5070/api/pokemon/2 - application/json 24
+2026-04-06 21:40:23.526 -05:00 [INF] Executing endpoint 'PokedexClone.WebApp.Controllers.PokemonController.UpdateById (PokedexClone.WebApp)'
+2026-04-06 21:40:23.528 -05:00 [INF] Route matched with {action = "UpdateById", controller = "Pokemon"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateById(Int32, PokedexClone.Application.Models.Requests.Pokemon.UpdatePokemonRequest) on controller PokedexClone.WebApp.Controllers.PokemonController (PokedexClone.WebApp).
+2026-04-06 21:40:23.534 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[PokemonID], [p].[Attack], [p].[CreatedAt], [p].[Defense], [p].[DeletedAt], [p].[Description], [p].[DisplayName], [p].[Generation], [p].[HP], [p].[SpecialAttack], [p].[SpecialDefense], [p].[Speed], [p].[SpriteUrl], [p].[UpdatedAt]
+FROM [Pokemon] AS [p]
+WHERE [p].[PokemonID] = @__id_0 AND [p].[DeletedAt] IS NULL
+2026-04-06 21:40:23.545 -05:00 [INF] Executed DbCommand (8ms) [Parameters=[@p13='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime2), @p4='?' (Size = 255) (DbType = AnsiString), @p5='?' (Size = 30) (DbType = AnsiString), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32), @p11='?' (Size = 255) (DbType = AnsiString), @p12='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Pokemon] SET [Attack] = @p0, [CreatedAt] = @p1, [Defense] = @p2, [DeletedAt] = @p3, [Description] = @p4, [DisplayName] = @p5, [Generation] = @p6, [HP] = @p7, [SpecialAttack] = @p8, [SpecialDefense] = @p9, [Speed] = @p10, [SpriteUrl] = @p11, [UpdatedAt] = @p12
+OUTPUT 1
+WHERE [PokemonID] = @p13;
+2026-04-06 21:40:23.549 -05:00 [INF] Executing OkObjectResult, writing value of type 'PokedexClone.Application.Models.Responses.GenericResponse`1[[PokedexClone.Application.Models.DTOs.PokemonDto, PokedexClone.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-06 21:40:23.551 -05:00 [INF] Executed action PokedexClone.WebApp.Controllers.PokemonController.UpdateById (PokedexClone.WebApp) in 20.8132ms
+2026-04-06 21:40:23.553 -05:00 [INF] Executed endpoint 'PokedexClone.WebApp.Controllers.PokemonController.UpdateById (PokedexClone.WebApp)'
+2026-04-06 21:40:23.555 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5070/api/pokemon/2 - 200 null application/json; charset=utf-8 32.0125ms
+2026-04-06 21:41:04.542 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5070/api/move - application/json 54
+2026-04-06 21:41:04.545 -05:00 [INF] Executing endpoint 'PokedexClone.WebApp.Controllers.MoveController.Create (PokedexClone.WebApp)'
+2026-04-06 21:41:04.549 -05:00 [INF] Route matched with {action = "Create", controller = "Move"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(PokedexClone.Application.Models.Requests.Move.CreateMoveRequest) on controller PokedexClone.WebApp.Controllers.MoveController (PokedexClone.WebApp).
+2026-04-06 21:41:04.624 -05:00 [INF] Executed DbCommand (19ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (Size = 30) (DbType = AnsiString), @p4='?' (Size = 255) (DbType = AnsiString), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Move] ([MoveID], [Accuracy], [DeletedAt], [DisplayName], [Effect], [MaxPP], [MinPP], [MoveCategoryID], [Power], [TypeID], [UpdatedAt])
+OUTPUT INSERTED.[CreatedAt]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2026-04-06 21:41:04.640 -05:00 [ERR] An exception occurred in the database while saving changes for context type 'PokedexClone.Domain.Database.SqlServer.Context.PokedexCloneContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK__Move__MoveCatego__44FF419A". The conflict occurred in database "PokedexClone", table "dbo.MoveCategory", column 'MoveCategoryID'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:611fcdbe-3028-4d4c-b1f5-4020d4158909
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK__Move__MoveCatego__44FF419A". The conflict occurred in database "PokedexClone", table "dbo.MoveCategory", column 'MoveCategoryID'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:611fcdbe-3028-4d4c-b1f5-4020d4158909
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2026-04-06 21:41:04.651 -05:00 [INF] Executed action PokedexClone.WebApp.Controllers.MoveController.Create (PokedexClone.WebApp) in 99.0898ms
+2026-04-06 21:41:04.653 -05:00 [INF] Executed endpoint 'PokedexClone.WebApp.Controllers.MoveController.Create (PokedexClone.WebApp)'
+2026-04-06 21:41:04.694 -05:00 [FTL] Se generó una excepción no controlada, con el traceId: "e8febaf8-62f5-47dd-a0e9-5513baae1bf1". Excepción: Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK__Move__MoveCatego__44FF419A". The conflict occurred in database "PokedexClone", table "dbo.MoveCategory", column 'MoveCategoryID'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:611fcdbe-3028-4d4c-b1f5-4020d4158909
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at PokedexClone.Infrastructure.Persistence.SqlServer.Repositories.MoveRepository.Create(Move move) in D:\Documents\workspace\pokedex-clone\backend\with-database\PokedexClone\PokedexClone.Infrastructure\Persistence\SqlServer\Repositories\MoveRepository.cs:line 15
+   at PokedexClone.Application.Services.MoveService.Create(CreateMoveRequest model) in D:\Documents\workspace\pokedex-clone\backend\with-database\PokedexClone\PokedexClone.Application\Services\MoveService.cs:line 18
+   at PokedexClone.WebApp.Controllers.MoveController.Create(CreateMoveRequest model) in D:\Documents\workspace\pokedex-clone\backend\with-database\PokedexClone\PokedexClone.WebApp\Controllers\MoveController.cs:line 14
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at PokedexClone.WebApp.Middlewares.ErrorHandlerMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in D:\Documents\workspace\pokedex-clone\backend\with-database\PokedexClone\PokedexClone.WebApp\Middlewares\ErrorHandlerMiddleware.cs:line 14
+2026-04-06 21:41:04.697 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5070/api/move - 500 null application/json; charset=utf-8 155.763ms
